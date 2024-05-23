@@ -1,24 +1,25 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 6eb47b75fa44bde6a91dee16ab8738ed
+  docChecksum: 7dbddf616951e852fbadf018152a4fdf
   docVersion: 1.0.0
-  speakeasyVersion: 1.295.0
-  generationVersion: 2.333.3
-  releaseVersion: 0.0.1
-  configChecksum: 130fa7572e87711743e405e319930540
+  speakeasyVersion: 1.295.1
+  generationVersion: 2.335.5
+  releaseVersion: 0.1.0
+  configChecksum: 2013e7c93b3b06c384a9ff19a150c3b5
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.4
-    core: 3.4.8
+    core: 3.4.10
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
-    responseFormat: 0.1.1
+    responseFormat: 0.1.2
     sdkHooks: 0.1.0
+    serverIDs: 2.81.1
 generatedFiles:
   - v3.go
   - provesdkservergo.go

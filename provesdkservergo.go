@@ -12,9 +12,14 @@ import (
 	"time"
 )
 
+const (
+	// UAT for US Region
+	ServerUatUs string = "uat-us"
+)
+
 // ServerList contains the list of servers available to the SDK
-var ServerList = []string{
-	"https://api.uat.proveapis.com/",
+var ServerList = map[string]string{
+	ServerUatUs: "https://api.uat.proveapis.com",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -44,7 +49,7 @@ type sdkConfiguration struct {
 	Client            HTTPClient
 	Security          func(context.Context) (interface{}, error)
 	ServerURL         string
-	ServerIndex       int
+	Server            string
 	Language          string
 	OpenAPIDocVersion string
 	SDKVersion        string
@@ -59,7 +64,11 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 		return c.ServerURL, nil
 	}
 
-	return ServerList[c.ServerIndex], nil
+	if c.Server == "" {
+		c.Server = "uat-us"
+	}
+
+	return ServerList[c.Server], nil
 }
 
 // Provesdkservergo - Prove APIs: This specification describes the Prove API.
@@ -91,14 +100,15 @@ func WithTemplatedServerURL(serverURL string, params map[string]string) SDKOptio
 	}
 }
 
-// WithServerIndex allows the overriding of the default server by index
-func WithServerIndex(serverIndex int) SDKOption {
+// WithServer allows the overriding of the default server by name
+func WithServer(server string) SDKOption {
 	return func(sdk *Provesdkservergo) {
-		if serverIndex < 0 || serverIndex >= len(ServerList) {
-			panic(fmt.Errorf("server index %d out of range", serverIndex))
+		_, ok := ServerList[server]
+		if !ok {
+			panic(fmt.Errorf("server %s not found", server))
 		}
 
-		sdk.sdkConfiguration.ServerIndex = serverIndex
+		sdk.sdkConfiguration.Server = server
 	}
 }
 
@@ -109,17 +119,11 @@ func WithClient(client HTTPClient) SDKOption {
 	}
 }
 
-func withSecurity(security interface{}) func(context.Context) (interface{}, error) {
-	return func(context.Context) (interface{}, error) {
-		return security, nil
-	}
-}
-
 // WithSecurity configures the SDK to use the provided security details
 func WithSecurity(auth string) SDKOption {
 	return func(sdk *Provesdkservergo) {
 		security := components.Security{Auth: &auth}
-		sdk.sdkConfiguration.Security = withSecurity(&security)
+		sdk.sdkConfiguration.Security = utils.AsSecuritySource(&security)
 	}
 }
 
@@ -144,9 +148,9 @@ func New(opts ...SDKOption) *Provesdkservergo {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.0.1",
-			GenVersion:        "2.333.3",
-			UserAgent:         "speakeasy-sdk/go 0.0.1 2.333.3 1.0.0 github.com/payfone/prove-sdk-server-go",
+			SDKVersion:        "0.1.0",
+			GenVersion:        "2.335.5",
+			UserAgent:         "speakeasy-sdk/go 0.1.0 2.335.5 1.0.0 github.com/payfone/prove-sdk-server-go",
 			Hooks:             hooks.New(),
 		},
 	}

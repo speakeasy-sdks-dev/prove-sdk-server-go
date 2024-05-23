@@ -9,10 +9,10 @@ Go SDK for Prove APIs - Customer Access
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
-| Error Object       | Status Code | Content Type     |
-| ------------------ | ----------- | ---------------- |
-| sdkerrors.Error    | 400,500     | application/json |
-| sdkerrors.SDKError | 4xx-5xx     | */*              |
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400,500            | application/json   |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ### Example
 
@@ -32,13 +32,11 @@ func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
-
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
 		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
-
 	ctx := context.Background()
 	res, err := s.V3.V3ChallengeRequest(ctx, request)
 	if err != nil {
@@ -63,13 +61,13 @@ func main() {
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
+### Select Server by Name
 
-You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| #   | Server                           | Variables |
-| --- | -------------------------------- | --------- |
-| 0   | `https://api.uat.proveapis.com/` | None      |
+| Name | Server | Variables |
+| ----- | ------ | --------- |
+| `uat-us` | `https://api.uat.proveapis.com` | None |
 
 #### Example
 
@@ -85,16 +83,14 @@ import (
 
 func main() {
 	s := provesdkservergo.New(
-		provesdkservergo.WithServerIndex(0),
+		provesdkservergo.WithServer("uat-us"),
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
-
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
 		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
-
 	ctx := context.Background()
 	res, err := s.V3.V3ChallengeRequest(ctx, request)
 	if err != nil {
@@ -123,16 +119,14 @@ import (
 
 func main() {
 	s := provesdkservergo.New(
-		provesdkservergo.WithServerURL("https://api.uat.proveapis.com/"),
+		provesdkservergo.WithServerURL("https://api.uat.proveapis.com"),
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
-
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
 		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
-
 	ctx := context.Background()
 	res, err := s.V3.V3ChallengeRequest(ctx, request)
 	if err != nil {
@@ -182,9 +176,9 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 This SDK supports the following security scheme globally:
 
-| Name   | Type   | Scheme       |
-| ------ | ------ | ------------ |
-| `Auth` | oauth2 | OAuth2 token |
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `Auth`       | oauth2       | OAuth2 token |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go
@@ -201,13 +195,11 @@ func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
-
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
 		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
-
 	ctx := context.Background()
 	res, err := s.V3.V3ChallengeRequest(ctx, request)
 	if err != nil {

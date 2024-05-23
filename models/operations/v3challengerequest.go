@@ -7,7 +7,7 @@ import (
 )
 
 type V3ChallengeRequestResponse struct {
-	HTTPMeta components.HTTPMetadata
+	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Successful request.
 	V3ChallengeResponse *components.V3ChallengeResponse
 }

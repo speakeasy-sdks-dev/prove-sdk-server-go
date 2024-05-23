@@ -138,6 +138,7 @@ func (s *V3) V3ChallengeRequest(ctx context.Context, request *components.V3Chall
 	}
 
 	return res, nil
+
 }
 
 // V3CompleteRequest - Verify user.
@@ -252,6 +253,7 @@ func (s *V3) V3CompleteRequest(ctx context.Context, request *components.V3Comple
 	}
 
 	return res, nil
+
 }
 
 // V3StartRequest - Start flow.
@@ -367,6 +369,7 @@ func (s *V3) V3StartRequest(ctx context.Context, request *components.V3StartRequ
 	}
 
 	return res, nil
+
 }
 
 // V3ValidateRequest - Validate phone number.
@@ -482,4 +485,5 @@ func (s *V3) V3ValidateRequest(ctx context.Context, request *components.V3Valida
 	}
 
 	return res, nil
+
 }

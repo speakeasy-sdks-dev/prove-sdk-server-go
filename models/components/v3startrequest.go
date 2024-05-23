@@ -16,7 +16,7 @@ type V3StartRequest struct {
 	// Final target URL is the URL where the end user will be redirected at the end of Instant Link. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
 	FinalTargetURL *string `default:"https://www.example.com/landing-page" json:"finalTargetUrl"`
 	// Flow type is based on the method used  - either desktop for native for iOS/Android native apps or mobile web. Acceptable options are: native or web.
-	FlowType *string `default:"web" json:"flowType"`
+	FlowType *string `default:"mobile" json:"flowType"`
 	// IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
 	IPAddress *string `default:"10.0.0.1" json:"ipAddress"`
 	// Last4SSN, an optional challenge, is the last 4 numbers of the social security number. Acceptable characters are: numeric.
