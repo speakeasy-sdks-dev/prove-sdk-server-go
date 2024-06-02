@@ -3,7 +3,7 @@
 package operations
 
 import (
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 )
 
 type V3CompleteRequestResponse struct {

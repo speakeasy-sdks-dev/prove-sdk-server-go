@@ -3,7 +3,7 @@
 package components
 
 import (
-	"github.com/payfone/prove-sdk-server-go/internal/utils"
+	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
 )
 
 type V3ValidateRequest struct {

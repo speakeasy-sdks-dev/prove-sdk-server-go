@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 )
 
 // OAuthServerList contains the list of OAuth servers available to the SDK.

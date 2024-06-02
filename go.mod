@@ -1,4 +1,4 @@
-module github.com/payfone/prove-sdk-server-go
+module github.com/prove-identity/prove-sdk-server-go
 
 go 1.20
 

@@ -22,9 +22,9 @@ package main
 import (
 	"context"
 	"errors"
-	provesdkservergo "github.com/payfone/prove-sdk-server-go"
-	"github.com/payfone/prove-sdk-server-go/models/components"
-	"github.com/payfone/prove-sdk-server-go/models/sdkerrors"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/models/sdkerrors"
 	"log"
 )
 
@@ -76,8 +76,8 @@ package main
 
 import (
 	"context"
-	provesdkservergo "github.com/payfone/prove-sdk-server-go"
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"log"
 )
 
@@ -112,8 +112,8 @@ package main
 
 import (
 	"context"
-	provesdkservergo "github.com/payfone/prove-sdk-server-go"
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"log"
 )
 
@@ -186,8 +186,8 @@ package main
 
 import (
 	"context"
-	provesdkservergo "github.com/payfone/prove-sdk-server-go"
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"log"
 )
 

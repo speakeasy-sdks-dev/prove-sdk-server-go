@@ -5,9 +5,9 @@ package provesdkservergo
 import (
 	"context"
 	"fmt"
-	"github.com/payfone/prove-sdk-server-go/internal/hooks"
-	"github.com/payfone/prove-sdk-server-go/internal/utils"
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/internal/hooks"
+	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"net/http"
 	"time"
 )
@@ -148,9 +148,9 @@ func New(opts ...SDKOption) *Provesdkservergo {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.1.0",
-			GenVersion:        "2.335.5",
-			UserAgent:         "speakeasy-sdk/go 0.1.0 2.335.5 1.0.0 github.com/payfone/prove-sdk-server-go",
+			SDKVersion:        "0.1.1",
+			GenVersion:        "2.338.7",
+			UserAgent:         "speakeasy-sdk/go 0.1.1 2.338.7 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			Hooks:             hooks.New(),
 		},
 	}

@@ -13,7 +13,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/payfone/prove-sdk-server-go/types"
+	"github.com/prove-identity/prove-sdk-server-go/types"
 
 	"github.com/ericlagergren/decimal"
 )

@@ -4,8 +4,8 @@ package main
 
 import (
 	"context"
-	provesdkservergo "github.com/payfone/prove-sdk-server-go"
-	"github.com/payfone/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"log"
 )
 
