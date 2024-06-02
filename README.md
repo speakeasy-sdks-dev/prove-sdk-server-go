@@ -67,7 +67,8 @@ You can override the default server globally using the `WithServer` option when 
 
 | Name | Server | Variables |
 | ----- | ------ | --------- |
-| `uat-us` | `https://api.uat.proveapis.com` | None |
+| `uat-us` | `https://link.uat.proveapis.com` | None |
+| `prod-us` | `https://link.proveapis.com` | None |
 
 #### Example
 
@@ -83,7 +84,7 @@ import (
 
 func main() {
 	s := provesdkservergo.New(
-		provesdkservergo.WithServer("uat-us"),
+		provesdkservergo.WithServer("prod-us"),
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
@@ -119,7 +120,7 @@ import (
 
 func main() {
 	s := provesdkservergo.New(
-		provesdkservergo.WithServerURL("https://api.uat.proveapis.com"),
+		provesdkservergo.WithServerURL("https://link.uat.proveapis.com"),
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{

@@ -19,7 +19,8 @@ import (
 
 // OAuthServerList contains the list of OAuth servers available to the SDK.
 var OAuthServerList = map[string]string{
-	ServerUatUs: "https://api.uat.proveapis.com",
+	ServerUatUs:  "https://link.uat.proveapis.com",
+	ServerProdUs: "https://link.proveapis.com",
 }
 
 // OAuthClient contains the OAuth connection details.
