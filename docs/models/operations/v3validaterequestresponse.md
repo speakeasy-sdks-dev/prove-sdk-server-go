@@ -1,0 +1,9 @@
+# V3ValidateRequestResponse
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `HTTPMeta`                                                                                 | [components.HTTPMetadata](../../models/components/httpmetadata.md)                         | :heavy_check_mark:                                                                         | N/A                                                                                        |                                                                                            |
+| `V3ValidateResponse`                                                                       | [*components.V3ValidateResponse](../../models/components/v3validateresponse.md)            | :heavy_minus_sign:                                                                         | Successful request.                                                                        | {<br/>"next": {<br/>"v3-challenge": "/v3/challenge"<br/>},<br/>"success": true,<br/>"challengeMissing": true<br/>} |
