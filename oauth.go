@@ -147,7 +147,7 @@ func (o *OAuthClient) AccessToken(URL string) (string, error) {
 	o.mutex.Lock()
 	defer o.mutex.Unlock()
 
-	tokenServiceURL := fmt.Sprintf("%s/token", URL)
+	tokenServiceURL := fmt.Sprintf("%s/v3/token", URL)
 
 	data := url.Values{}
 	data.Set("username", o.username)
