@@ -2,32 +2,17 @@
 
 package components
 
-import (
-	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
-)
-
 type AddressEntry struct {
 	// Address is the street address of the individual.
-	Address *string `default:"39 South Trail" json:"address"`
+	Address *string `json:"address,omitempty"`
 	// City of the individual.
-	City *string `default:"San Antonio" json:"city"`
+	City *string `json:"city,omitempty"`
 	// Extended address is the apartment number or other extended address information.
 	ExtendedAddress *string `json:"extendedAddress,omitempty"`
 	// Postal code is the zip code of the individual.
-	PostalCode *string `default:"78285" json:"postalCode"`
+	PostalCode *string `json:"postalCode,omitempty"`
 	// Region is the state or locality of the individual.
-	Region *string `default:"TX" json:"region"`
-}
-
-func (a AddressEntry) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(a, "", false)
-}
-
-func (a *AddressEntry) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
-		return err
-	}
-	return nil
+	Region *string `json:"region,omitempty"`
 }
 
 func (o *AddressEntry) GetAddress() *string {

@@ -2,33 +2,18 @@
 
 package components
 
-import (
-	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
-)
-
 type V3ChallengeRequest struct {
 	// Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
-	CorrelationID *string `default:"713189b8-5555-4b08-83ba-75d08780aebd" json:"correlationId"`
+	CorrelationID string `json:"correlationId"`
 	// DOB is the date of birth in this format: YYYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
-	Dob *string `default:"2024-05-02 00:00:00 +0000 UTC" json:"dob"`
+	Dob *string `json:"dob,omitempty"`
 	// Last4SSN is the last 4 numbers of the social security number. Acceptable characters are: numeric.
-	Last4SSN *string `default:"1234" json:"last4SSN"`
+	Last4SSN *string `json:"last4SSN,omitempty"`
 }
 
-func (v V3ChallengeRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(v, "", false)
-}
-
-func (v *V3ChallengeRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (o *V3ChallengeRequest) GetCorrelationID() *string {
+func (o *V3ChallengeRequest) GetCorrelationID() string {
 	if o == nil {
-		return nil
+		return ""
 	}
 	return o.CorrelationID
 }

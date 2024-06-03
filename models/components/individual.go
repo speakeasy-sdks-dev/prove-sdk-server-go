@@ -2,34 +2,19 @@
 
 package components
 
-import (
-	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
-)
-
 type Individual struct {
 	// Addresses that belong to the individual.
 	Addresses []AddressEntry `json:"addresses,omitempty"`
 	// DOB is the date of birth of the individual.
-	Dob *string `default:"2024-05-02 00:00:00 +0000 UTC" json:"dob"`
+	Dob *string `json:"dob,omitempty"`
 	// Email addresses that belong to the individual.
 	EmailAddresses []string `json:"emailAddresses,omitempty"`
 	// First name of the individual.
-	FirstName *string `default:"Tod" json:"firstName"`
+	FirstName *string `json:"firstName,omitempty"`
 	// Las name of the individual.
-	LastName *string `default:"Weedall" json:"lastName"`
+	LastName *string `json:"lastName,omitempty"`
 	// SSN is the social security number of the individual.
-	Ssn *string `default:"265228370" json:"ssn"`
-}
-
-func (i Individual) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(i, "", false)
-}
-
-func (i *Individual) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &i, "", false, false); err != nil {
-		return err
-	}
-	return nil
+	Ssn *string `json:"ssn,omitempty"`
 }
 
 func (o *Individual) GetAddresses() []AddressEntry {

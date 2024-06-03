@@ -2,38 +2,23 @@
 
 package components
 
-import (
-	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
-)
-
 type V3StartRequest struct {
 	// Device ID is the ID of the device. Acceptable characters are: alphanumeric with symbols '-._+=/'.
-	DeviceID *string `default:"713189b8-5555-4b08-83ba-75d08780aebd" json:"deviceId"`
+	DeviceID *string `json:"deviceId,omitempty"`
 	// DOB, an optional challenge, is the date of birth in this format: YYYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
-	Dob *string `default:"2024-05-02 00:00:00 +0000 UTC" json:"dob"`
+	Dob *string `json:"dob,omitempty"`
 	// Email is the email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
-	EmailAddress *string `default:"jdoe@example.com" json:"emailAddress"`
+	EmailAddress *string `json:"emailAddress,omitempty"`
 	// Final target URL is the URL where the end user will be redirected at the end of Instant Link. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
-	FinalTargetURL *string `default:"https://www.example.com/landing-page" json:"finalTargetUrl"`
+	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// Flow type is based on the method used  - either desktop for native for iOS/Android native apps or mobile web. Acceptable options are: native or web.
-	FlowType *string `default:"mobile" json:"flowType"`
+	FlowType string `json:"flowType"`
 	// IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
-	IPAddress *string `default:"10.0.0.1" json:"ipAddress"`
+	IPAddress *string `json:"ipAddress,omitempty"`
 	// Last4SSN, an optional challenge, is the last 4 numbers of the social security number. Acceptable characters are: numeric.
-	Last4SSN *string `default:"1234" json:"last4SSN"`
+	Last4SSN *string `json:"last4SSN,omitempty"`
 	// Phone number is the number of the mobile phone. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber *string `default:"12065550100" json:"phoneNumber"`
-}
-
-func (v V3StartRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(v, "", false)
-}
-
-func (v *V3StartRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
-		return err
-	}
-	return nil
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
 }
 
 func (o *V3StartRequest) GetDeviceID() *string {
@@ -64,9 +49,9 @@ func (o *V3StartRequest) GetFinalTargetURL() *string {
 	return o.FinalTargetURL
 }
 
-func (o *V3StartRequest) GetFlowType() *string {
+func (o *V3StartRequest) GetFlowType() string {
 	if o == nil {
-		return nil
+		return ""
 	}
 	return o.FlowType
 }

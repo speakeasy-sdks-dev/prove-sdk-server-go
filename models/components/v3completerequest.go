@@ -2,30 +2,15 @@
 
 package components
 
-import (
-	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
-)
-
 type V3CompleteRequest struct {
 	// Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
-	CorrelationID *string    `default:"713189b8-5555-4b08-83ba-75d08780aebd" json:"correlationId"`
+	CorrelationID string     `json:"correlationId"`
 	Individual    Individual `json:"individual"`
 }
 
-func (v V3CompleteRequest) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(v, "", false)
-}
-
-func (v *V3CompleteRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (o *V3CompleteRequest) GetCorrelationID() *string {
+func (o *V3CompleteRequest) GetCorrelationID() string {
 	if o == nil {
-		return nil
+		return ""
 	}
 	return o.CorrelationID
 }
