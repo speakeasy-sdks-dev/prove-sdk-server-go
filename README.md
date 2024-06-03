@@ -33,7 +33,7 @@ func main() {
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
-		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+		CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
@@ -88,7 +88,7 @@ func main() {
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
-		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+		CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
@@ -124,7 +124,7 @@ func main() {
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
-		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+		CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
@@ -197,7 +197,7 @@ func main() {
 		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
 	)
 	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
-		CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+		CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
 		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
 		Last4SSN:      provesdkservergo.String("1234"),
 	}
