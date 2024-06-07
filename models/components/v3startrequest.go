@@ -9,9 +9,11 @@ type V3StartRequest struct {
 	Dob *string `json:"dob,omitempty"`
 	// Email is the email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// Final target URL is the URL where the end user will be redirected at the end of Instant Link. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+	// Final target URL is the URL where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
-	// Flow type is based on the method used  - either desktop for native for iOS/Android native apps or mobile web. Acceptable options are: native or web.
+	// Flow ID defines which flow to use during the transaction.
+	FlowID *string `json:"flowId,omitempty"`
+	// Flow type is based on the method used - either 'desktop' if using desktop or 'mobile' for iOS/Android native apps and mobile web. Acceptable options are: 'desktop' or 'mobile'.
 	FlowType string `json:"flowType"`
 	// IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
 	IPAddress *string `json:"ipAddress,omitempty"`
@@ -47,6 +49,13 @@ func (o *V3StartRequest) GetFinalTargetURL() *string {
 		return nil
 	}
 	return o.FinalTargetURL
+}
+
+func (o *V3StartRequest) GetFlowID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FlowID
 }
 
 func (o *V3StartRequest) GetFlowType() string {
