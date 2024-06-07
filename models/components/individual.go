@@ -11,7 +11,7 @@ type Individual struct {
 	EmailAddresses []string `json:"emailAddresses,omitempty"`
 	// First name of the individual.
 	FirstName *string `json:"firstName,omitempty"`
-	// Las name of the individual.
+	// Last name of the individual.
 	LastName *string `json:"lastName,omitempty"`
 	// SSN is the social security number of the individual.
 	Ssn *string `json:"ssn,omitempty"`

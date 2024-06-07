@@ -1,0 +1,12 @@
+# V3TokenResponse
+
+
+## Fields
+
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `AccessToken`                                                  | *string*                                                       | :heavy_check_mark:                                             | AccessToken returns the access token as a string.              | eyJ...                                                         |
+| `ExpiresIn`                                                    | *int64*                                                        | :heavy_check_mark:                                             | ExpiresIn returns the lifetime of the token in seconds.        | 3600                                                           |
+| `RefreshExpiresIn`                                             | *int64*                                                        | :heavy_check_mark:                                             | RefreshExpiresIn returns the lifetime of the token in seconds. | 3600                                                           |
+| `RefreshToken`                                                 | *string*                                                       | :heavy_check_mark:                                             | RefreshToken returns the refresh token as a string.            | eyJ...                                                         |
+| `TokenType`                                                    | *string*                                                       | :heavy_check_mark:                                             | TokenType returns the type of token.                           | Bearer                                                         |
