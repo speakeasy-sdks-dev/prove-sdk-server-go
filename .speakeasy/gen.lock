@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.300.1
   generationVersion: 2.339.1
-  releaseVersion: 0.2.2
-  configChecksum: 7fcd4035498976a8b7c0ff7ef15f5752
+  releaseVersion: 0.2.3
+  configChecksum: e2a5ade66c42d4f099ca916babef8de1
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
