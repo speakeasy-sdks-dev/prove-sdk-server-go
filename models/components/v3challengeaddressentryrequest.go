@@ -2,7 +2,7 @@
 
 package components
 
-type AddressEntry struct {
+type V3ChallengeAddressEntryRequest struct {
 	// Address is the street address of the individual.
 	Address *string `json:"address,omitempty"`
 	// City of the individual.
@@ -15,35 +15,35 @@ type AddressEntry struct {
 	Region *string `json:"region,omitempty"`
 }
 
-func (o *AddressEntry) GetAddress() *string {
+func (o *V3ChallengeAddressEntryRequest) GetAddress() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Address
 }
 
-func (o *AddressEntry) GetCity() *string {
+func (o *V3ChallengeAddressEntryRequest) GetCity() *string {
 	if o == nil {
 		return nil
 	}
 	return o.City
 }
 
-func (o *AddressEntry) GetExtendedAddress() *string {
+func (o *V3ChallengeAddressEntryRequest) GetExtendedAddress() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ExtendedAddress
 }
 
-func (o *AddressEntry) GetPostalCode() *string {
+func (o *V3ChallengeAddressEntryRequest) GetPostalCode() *string {
 	if o == nil {
 		return nil
 	}
 	return o.PostalCode
 }
 
-func (o *AddressEntry) GetRegion() *string {
+func (o *V3ChallengeAddressEntryRequest) GetRegion() *string {
 	if o == nil {
 		return nil
 	}
