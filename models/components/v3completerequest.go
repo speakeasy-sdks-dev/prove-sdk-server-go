@@ -4,8 +4,8 @@ package components
 
 type V3CompleteRequest struct {
 	// Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
-	CorrelationID string     `json:"correlationId"`
-	Individual    Individual `json:"individual"`
+	CorrelationID string                      `json:"correlationId"`
+	Individual    V3CompleteIndividualRequest `json:"individual"`
 }
 
 func (o *V3CompleteRequest) GetCorrelationID() string {
@@ -15,9 +15,9 @@ func (o *V3CompleteRequest) GetCorrelationID() string {
 	return o.CorrelationID
 }
 
-func (o *V3CompleteRequest) GetIndividual() Individual {
+func (o *V3CompleteRequest) GetIndividual() V3CompleteIndividualRequest {
 	if o == nil {
-		return Individual{}
+		return V3CompleteIndividualRequest{}
 	}
 	return o.Individual
 }

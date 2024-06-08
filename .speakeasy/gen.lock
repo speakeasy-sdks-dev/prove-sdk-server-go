@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: a253df529a7784a984a21021e5fa08ba
+  docChecksum: 3ace75c14085428cab256fef5a032253
   docVersion: 1.0.0
   speakeasyVersion: 1.300.1
   generationVersion: 2.339.1
-  releaseVersion: 0.2.1
-  configChecksum: f4bb547141dc00d6f45952df0ef00e2c
+  releaseVersion: 0.2.2
+  configChecksum: 7fcd4035498976a8b7c0ff7ef15f5752
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
@@ -47,12 +47,14 @@ generatedFiles:
   - /models/operations/v3tokenrequest.go
   - /models/operations/v3validaterequest.go
   - /models/components/v3challengeresponse.go
-  - /models/components/individual.go
-  - /models/components/addressentry.go
+  - /models/components/v3challengeindividualrequest.go
+  - /models/components/v3challengeaddressentryrequest.go
   - /models/components/httpmetadata.go
   - /models/components/v3challengerequest.go
   - /models/components/v3completeresponse.go
   - /models/components/v3completerequest.go
+  - /models/components/v3completeindividualrequest.go
+  - /models/components/v3completeaddressentryrequest.go
   - /models/components/v3startresponse.go
   - /models/components/v3startrequest.go
   - /models/components/v3tokenresponse.go
@@ -67,12 +69,14 @@ generatedFiles:
   - docs/models/operations/v3tokenrequestresponse.md
   - docs/models/operations/v3validaterequestresponse.md
   - docs/models/components/v3challengeresponse.md
-  - docs/models/components/individual.md
-  - docs/models/components/addressentry.md
+  - docs/models/components/v3challengeindividualrequest.md
+  - docs/models/components/v3challengeaddressentryrequest.md
   - docs/models/components/httpmetadata.md
   - docs/models/components/v3challengerequest.md
   - docs/models/components/v3completeresponse.md
   - docs/models/components/v3completerequest.md
+  - docs/models/components/v3completeindividualrequest.md
+  - docs/models/components/v3completeaddressentryrequest.md
   - docs/models/components/v3startresponse.md
   - docs/models/components/v3startrequest.md
   - docs/models/components/v3tokenresponse.md
