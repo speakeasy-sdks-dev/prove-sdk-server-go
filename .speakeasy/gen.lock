@@ -1,23 +1,24 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 3ace75c14085428cab256fef5a032253
+  docChecksum: b51ef9bad10062257294d76f6d3fe02b
   docVersion: 1.0.0
-  speakeasyVersion: 1.300.1
-  generationVersion: 2.339.1
-  releaseVersion: 0.2.3
-  configChecksum: e2a5ade66c42d4f099ca916babef8de1
+  speakeasyVersion: 1.304.0
+  generationVersion: 2.340.3
+  releaseVersion: 0.4.0
+  configChecksum: c3656055c455fb2738c76b30881094f9
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
   go:
     additionalDependencies: 0.1.0
     core: 3.4.11
+    examples: 2.81.3
     globalSecurity: 2.82.9
     globalSecurityCallbacks: 0.1.0
-    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
+    oauth2ClientCredentials: 0.1.1
     responseFormat: 0.1.2
     sdkHooks: 0.1.0
     serverIDs: 2.81.1
@@ -41,15 +42,17 @@ generatedFiles:
   - internal/utils/retries.go
   - internal/utils/security.go
   - internal/utils/utils.go
+  - /models/operations/v3tokenrequest.go
   - /models/operations/v3challengerequest.go
   - /models/operations/v3completerequest.go
   - /models/operations/v3startrequest.go
-  - /models/operations/v3tokenrequest.go
   - /models/operations/v3validaterequest.go
+  - /models/components/v3tokenresponse.go
+  - /models/components/httpmetadata.go
+  - /models/components/v3tokenrequest.go
   - /models/components/v3challengeresponse.go
   - /models/components/v3challengeindividualrequest.go
   - /models/components/v3challengeaddressentryrequest.go
-  - /models/components/httpmetadata.go
   - /models/components/v3challengerequest.go
   - /models/components/v3completeresponse.go
   - /models/components/v3completerequest.go
@@ -57,21 +60,21 @@ generatedFiles:
   - /models/components/v3completeaddressentryrequest.go
   - /models/components/v3startresponse.go
   - /models/components/v3startrequest.go
-  - /models/components/v3tokenresponse.go
-  - /models/components/v3tokenrequest.go
   - /models/components/v3validateresponse.go
   - /models/components/v3validaterequest.go
   - /models/components/security.go
   - /models/sdkerrors/error.go
+  - docs/models/operations/v3tokenrequestresponse.md
   - docs/models/operations/v3challengerequestresponse.md
   - docs/models/operations/v3completerequestresponse.md
   - docs/models/operations/v3startrequestresponse.md
-  - docs/models/operations/v3tokenrequestresponse.md
   - docs/models/operations/v3validaterequestresponse.md
+  - docs/models/components/v3tokenresponse.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/v3tokenrequest.md
   - docs/models/components/v3challengeresponse.md
   - docs/models/components/v3challengeindividualrequest.md
   - docs/models/components/v3challengeaddressentryrequest.md
-  - docs/models/components/httpmetadata.md
   - docs/models/components/v3challengerequest.md
   - docs/models/components/v3completeresponse.md
   - docs/models/components/v3completerequest.md
@@ -79,8 +82,6 @@ generatedFiles:
   - docs/models/components/v3completeaddressentryrequest.md
   - docs/models/components/v3startresponse.md
   - docs/models/components/v3startrequest.md
-  - docs/models/components/v3tokenresponse.md
-  - docs/models/components/v3tokenrequest.md
   - docs/models/components/v3validateresponse.md
   - docs/models/components/v3validaterequest.md
   - docs/models/components/security.md
@@ -88,3 +89,4 @@ generatedFiles:
   - USAGE.md
   - .gitattributes
   - internal/hooks/hooks.go
+  - internal/hooks/clientcredentials.go

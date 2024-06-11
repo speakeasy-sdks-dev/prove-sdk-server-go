@@ -2,13 +2,42 @@
 
 package components
 
+import (
+	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
+	"github.com/prove-identity/prove-sdk-server-go/types"
+)
+
 type Security struct {
-	Auth *string `security:"scheme,type=oauth2,name=Authorization"`
+	ClientID     *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientID"`
+	ClientSecret *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientSecret"`
+	tokenURL     *string `const:"/realms/US/protocol/openid-connect/token"`
 }
 
-func (o *Security) GetAuth() *string {
+func (s Security) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *Security) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Security) GetClientID() *string {
 	if o == nil {
 		return nil
 	}
-	return o.Auth
+	return o.ClientID
+}
+
+func (o *Security) GetClientSecret() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientSecret
+}
+
+func (o *Security) GetTokenURL() *string {
+	return types.String("/realms/US/protocol/openid-connect/token")
 }

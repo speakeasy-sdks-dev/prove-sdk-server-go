@@ -123,10 +123,9 @@ func WithClient(client HTTPClient) SDKOption {
 }
 
 // WithSecurity configures the SDK to use the provided security details
-func WithSecurity(auth string) SDKOption {
+func WithSecurity(security components.Security) SDKOption {
 	return func(sdk *Provesdkservergo) {
-		security := components.Security{Auth: &auth}
-		sdk.sdkConfiguration.Security = utils.AsSecuritySource(&security)
+		sdk.sdkConfiguration.Security = utils.AsSecuritySource(security)
 	}
 }
 
@@ -151,9 +150,9 @@ func New(opts ...SDKOption) *Provesdkservergo {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.2.3",
-			GenVersion:        "2.339.1",
-			UserAgent:         "speakeasy-sdk/go 0.2.3 2.339.1 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			SDKVersion:        "0.4.0",
+			GenVersion:        "2.340.3",
+			UserAgent:         "speakeasy-sdk/go 0.4.0 2.340.3 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			Hooks:             hooks.New(),
 		},
 	}

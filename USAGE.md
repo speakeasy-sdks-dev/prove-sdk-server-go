@@ -11,19 +11,27 @@ import (
 
 func main() {
 	s := provesdkservergo.New(
-		provesdkservergo.WithSecurity("<YOUR_AUTH_HERE>"),
+		provesdkservergo.WithSecurity(components.Security{
+			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+		}),
 	)
-	var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
-		CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
-		Dob:           provesdkservergo.String("2024-05-02T00:00:00Z"),
-		Last4SSN:      provesdkservergo.String("1234"),
+	var request *components.V3StartRequest = &components.V3StartRequest{
+		DeviceID:       provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+		Dob:            provesdkservergo.String("2024-05-02T00:00:00Z"),
+		EmailAddress:   provesdkservergo.String("jdoe@example.com"),
+		FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+		FlowID:         provesdkservergo.String("\"prove-standard-prefill-i1\""),
+		FlowType:       "mobile",
+		IPAddress:      provesdkservergo.String("10.0.0.1"),
+		Last4SSN:       provesdkservergo.String("1234"),
+		PhoneNumber:    provesdkservergo.String("12065550100"),
 	}
 	ctx := context.Background()
-	res, err := s.V3.V3ChallengeRequest(ctx, request)
+	res, err := s.V3.V3StartRequest(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.V3ChallengeResponse != nil {
+	if res.V3StartResponse != nil {
 		// handle response
 	}
 }
