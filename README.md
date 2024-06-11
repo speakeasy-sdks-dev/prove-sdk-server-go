@@ -216,20 +216,22 @@ func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithServer("prod-us"),
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
 		}),
 	)
-	var request *components.V3StartRequest = &components.V3StartRequest{
-		FlowType:       "desktop",
-		FinalTargetURL: provesdkservergo.String("https://example.com"),
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     provesdkservergo.String("customer_id"),
+		ClientSecret: provesdkservergo.String("secret"),
+		GrantType:    "client_credentials",
+		Password:     provesdkservergo.String("password"),
+		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
-	res, err := s.V3.V3StartRequest(ctx, request)
+	res, err := s.V3.V3TokenRequest(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.V3StartResponse != nil {
+	if res.V3TokenResponse != nil {
 		// handle response
 	}
 }
@@ -254,20 +256,22 @@ func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithServerURL("https://platform.uat.proveapis.com"),
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
 		}),
 	)
-	var request *components.V3StartRequest = &components.V3StartRequest{
-		FlowType:       "desktop",
-		FinalTargetURL: provesdkservergo.String("https://example.com"),
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     provesdkservergo.String("customer_id"),
+		ClientSecret: provesdkservergo.String("secret"),
+		GrantType:    "client_credentials",
+		Password:     provesdkservergo.String("password"),
+		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
-	res, err := s.V3.V3StartRequest(ctx, request)
+	res, err := s.V3.V3TokenRequest(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.V3StartResponse != nil {
+	if res.V3TokenResponse != nil {
 		// handle response
 	}
 }
@@ -330,20 +334,22 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
 		}),
 	)
-	var request *components.V3StartRequest = &components.V3StartRequest{
-		FlowType:       "desktop",
-		FinalTargetURL: provesdkservergo.String("https://example.com"),
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     provesdkservergo.String("customer_id"),
+		ClientSecret: provesdkservergo.String("secret"),
+		GrantType:    "client_credentials",
+		Password:     provesdkservergo.String("password"),
+		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
-	res, err := s.V3.V3StartRequest(ctx, request)
+	res, err := s.V3.V3TokenRequest(ctx, request)
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.V3StartResponse != nil {
+	if res.V3TokenResponse != nil {
 		// handle response
 	}
 }
@@ -384,16 +390,18 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
 		}),
 	)
-	var request *components.V3StartRequest = &components.V3StartRequest{
-		FlowType:       "desktop",
-		FinalTargetURL: provesdkservergo.String("https://example.com"),
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     provesdkservergo.String("customer_id"),
+		ClientSecret: provesdkservergo.String("secret"),
+		GrantType:    "client_credentials",
+		Password:     provesdkservergo.String("password"),
+		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
-	res, err := s.V3.V3StartRequest(ctx, request)
+	res, err := s.V3.V3TokenRequest(ctx, request)
 	if err != nil {
 
 		var e *sdkerrors.Error
