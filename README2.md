@@ -1,8 +1,5 @@
-# github.com/prove-identity/prove-sdk-server-go
-
-<div align="left">
-    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
-</div>
+# prove-sdk-server-go
+Go SDK for Prove APIs - Customer Access
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
@@ -12,10 +9,9 @@ go get github.com/prove-identity/prove-sdk-server-go
 ```
 <!-- End SDK Installation [installation] -->
 
-<!-- No SDK Example Usage [usage] -->
 ## SDK Example Usage
 
-### Example
+### Flow Example
 
 ```go
 package main
@@ -135,27 +131,17 @@ func flow() error {
 
 ```
 
-<!-- Start Available Resources and Operations [operations] -->
-## Available Resources and Operations
-
-### [V3](docs/sdks/v3/README.md)
-
-* [V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
-* [V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
-* [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Verify user.
-* [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
-* [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
-<!-- End Available Resources and Operations [operations] -->
-
-<!-- Start Error Handling [errors] -->
+<!-- No SDK Example Usage -->
+<!-- No SDK Available Operations -->
+<!-- No Start Error Handling -->
 ## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
-| Error Object       | Status Code | Content Type     |
-| ------------------ | ----------- | ---------------- |
-| sdkerrors.Error    | 400,500     | application/json |
-| sdkerrors.SDKError | 4xx-5xx     | */*              |
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400,500            | application/json   |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ### Example
 
@@ -174,20 +160,17 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
 		}),
 	)
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
-		ClientID:     provesdkservergo.String("customer_id"),
-		ClientSecret: provesdkservergo.String("secret"),
-		GrantType:    "client_credentials",
-		Password:     provesdkservergo.String("password"),
-		Username:     provesdkservergo.String("jdoe"),
+	var request *components.V3StartRequest = &components.V3StartRequest{
+		FlowType:       "desktop",
+		FinalTargetURL: provesdkservergo.String("https://example.com"),
 	}
 	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request)
+	res, err := s.V3.V3StartRequest(ctx, request)
 	if err != nil {
-
 		var e *sdkerrors.Error
 		if errors.As(err, &e) {
 			// handle error
@@ -212,10 +195,10 @@ func main() {
 
 You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name      | Server                               | Variables |
-| --------- | ------------------------------------ | --------- |
-| `uat-us`  | `https://platform.uat.proveapis.com` | None      |
-| `prod-us` | `https://platform.proveapis.com`     | None      |
+| Name | Server | Variables |
+| ----- | ------ | --------- |
+| `uat-us` | `https://platform.uat.proveapis.com` | None |
+| `prod-us` | `https://platform.proveapis.com` | None |
 
 #### Example
 
@@ -332,10 +315,10 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type   | Scheme       |
-| -------------- | ------ | ------------ |
-| `ClientID`     | oauth2 | OAuth2 token |
-| `ClientSecret` | oauth2 | OAuth2 token |
+| Name           | Type           | Scheme         |
+| -------------- | -------------- | -------------- |
+| `ClientID`     | oauth2         | OAuth2 token   |
+| `ClientSecret` | oauth2         | OAuth2 token   |
 
 You can set the security parameters through the `WithSecurity` option when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```go
@@ -374,7 +357,70 @@ func main() {
 ```
 <!-- End Authentication [security] -->
 
-<!-- No Special Types [types] -->
+<!-- Start Special Types [types] -->
+## Special Types
+
+
+<!-- End Special Types [types] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400,500            | application/json   |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"errors"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/models/sdkerrors"
+	"log"
+)
+
+func main() {
+	s := provesdkservergo.New(
+		provesdkservergo.WithSecurity(components.Security{
+			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+		}),
+	)
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     provesdkservergo.String("customer_id"),
+		ClientSecret: provesdkservergo.String("secret"),
+		GrantType:    "client_credentials",
+		Password:     provesdkservergo.String("password"),
+		Username:     provesdkservergo.String("jdoe"),
+	}
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, request)
+	if err != nil {
+
+		var e *sdkerrors.Error
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *sdkerrors.SDKError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+	}
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
+
 
