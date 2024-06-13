@@ -10,7 +10,7 @@ import (
 type Security struct {
 	ClientID     *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientID"`
 	ClientSecret *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientSecret"`
-	tokenURL     *string `const:"https://keycloak.dev.lynx.proveint.com/realms/US/protocol/openid-connect/token"`
+	tokenURL     *string `const:"/token"`
 }
 
 func (s Security) MarshalJSON() ([]byte, error) {
@@ -39,5 +39,5 @@ func (o *Security) GetClientSecret() *string {
 }
 
 func (o *Security) GetTokenURL() *string {
-	return types.String("https://keycloak.dev.lynx.proveint.com/realms/US/protocol/openid-connect/token")
+	return types.String("/token")
 }

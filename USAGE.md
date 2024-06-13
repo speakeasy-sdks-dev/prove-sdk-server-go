@@ -20,7 +20,7 @@ func main() {
 		Dob:            provesdkservergo.String("2024-05-02T00:00:00Z"),
 		EmailAddress:   provesdkservergo.String("jdoe@example.com"),
 		FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
-		FlowID:         provesdkservergo.String("\"prove-standard-prefill-i1\""),
+		FlowID:         provesdkservergo.String("prove-standard-prefill-i1"),
 		FlowType:       "mobile",
 		IPAddress:      provesdkservergo.String("10.0.0.1"),
 		Last4SSN:       provesdkservergo.String("1234"),
