@@ -7,12 +7,8 @@ type V3TokenRequest struct {
 	ClientID *string `json:"client_id,omitempty"`
 	// ClientSecret is the client secret ID provided to the customer during onboarding.
 	ClientSecret *string `json:"client_secret,omitempty"`
-	// GrantType only allows option: `password`.
+	// GrantType only allows option: `client_credentials`.
 	GrantType string `json:"grant_type"`
-	// Password is the secret ID provided to the customer during onboarding.
-	Password *string `json:"password,omitempty"`
-	// Username is the ID provided to the customer during onboarding.
-	Username *string `json:"username,omitempty"`
 }
 
 func (o *V3TokenRequest) GetClientID() *string {
@@ -34,18 +30,4 @@ func (o *V3TokenRequest) GetGrantType() string {
 		return ""
 	}
 	return o.GrantType
-}
-
-func (o *V3TokenRequest) GetPassword() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Password
-}
-
-func (o *V3TokenRequest) GetUsername() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Username
 }

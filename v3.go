@@ -37,7 +37,7 @@ func (s *V3) V3TokenRequest(ctx context.Context, request *components.V3TokenRequ
 	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
-	opURL, err := url.JoinPath(baseURL, "/realms/US/protocol/openid-connect/token")
+	opURL, err := url.JoinPath(baseURL, "/token")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -256,7 +256,7 @@ func (s *V3) V3ChallengeRequest(ctx context.Context, request *components.V3Chall
 
 }
 
-// V3CompleteRequest - Verify user.
+// V3CompleteRequest - Complete flow.
 // Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow.
 func (s *V3) V3CompleteRequest(ctx context.Context, request *components.V3CompleteRequest) (*operations.V3CompleteRequestResponse, error) {
 	hookCtx := hooks.HookContext{

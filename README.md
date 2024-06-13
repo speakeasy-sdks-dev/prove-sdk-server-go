@@ -142,7 +142,7 @@ func flow() error {
 
 * [V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
 * [V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
-* [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Verify user.
+* [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
 * [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
 <!-- End Available Resources and Operations [operations] -->
@@ -152,10 +152,10 @@ func flow() error {
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
-| Error Object       | Status Code | Content Type     |
-| ------------------ | ----------- | ---------------- |
-| sdkerrors.Error    | 400,500     | application/json |
-| sdkerrors.SDKError | 4xx-5xx     | */*              |
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400,500            | application/json   |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ### Example
 
@@ -181,8 +181,6 @@ func main() {
 		ClientID:     provesdkservergo.String("customer_id"),
 		ClientSecret: provesdkservergo.String("secret"),
 		GrantType:    "client_credentials",
-		Password:     provesdkservergo.String("password"),
-		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, request)
@@ -212,10 +210,10 @@ func main() {
 
 You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name      | Server                               | Variables |
-| --------- | ------------------------------------ | --------- |
-| `uat-us`  | `https://platform.uat.proveapis.com` | None      |
-| `prod-us` | `https://platform.proveapis.com`     | None      |
+| Name | Server | Variables |
+| ----- | ------ | --------- |
+| `uat-us` | `https://platform.uat.proveapis.com` | None |
+| `prod-us` | `https://platform.proveapis.com` | None |
 
 #### Example
 
@@ -240,8 +238,6 @@ func main() {
 		ClientID:     provesdkservergo.String("customer_id"),
 		ClientSecret: provesdkservergo.String("secret"),
 		GrantType:    "client_credentials",
-		Password:     provesdkservergo.String("password"),
-		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, request)
@@ -280,8 +276,6 @@ func main() {
 		ClientID:     provesdkservergo.String("customer_id"),
 		ClientSecret: provesdkservergo.String("secret"),
 		GrantType:    "client_credentials",
-		Password:     provesdkservergo.String("password"),
-		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, request)
@@ -332,10 +326,10 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type   | Scheme       |
-| -------------- | ------ | ------------ |
-| `ClientID`     | oauth2 | OAuth2 token |
-| `ClientSecret` | oauth2 | OAuth2 token |
+| Name           | Type           | Scheme         |
+| -------------- | -------------- | -------------- |
+| `ClientID`     | oauth2         | OAuth2 token   |
+| `ClientSecret` | oauth2         | OAuth2 token   |
 
 You can set the security parameters through the `WithSecurity` option when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```go
@@ -358,8 +352,6 @@ func main() {
 		ClientID:     provesdkservergo.String("customer_id"),
 		ClientSecret: provesdkservergo.String("secret"),
 		GrantType:    "client_credentials",
-		Password:     provesdkservergo.String("password"),
-		Username:     provesdkservergo.String("jdoe"),
 	}
 	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, request)

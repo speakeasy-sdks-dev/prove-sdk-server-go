@@ -5,7 +5,7 @@
 
 * [V3TokenRequest](#v3tokenrequest) - Request OAuth token.
 * [V3ChallengeRequest](#v3challengerequest) - Submit challenge.
-* [V3CompleteRequest](#v3completerequest) - Verify user.
+* [V3CompleteRequest](#v3completerequest) - Complete flow.
 * [V3StartRequest](#v3startrequest) - Start flow.
 * [V3ValidateRequest](#v3validaterequest) - Validate phone number.
 
@@ -35,8 +35,6 @@ func main() {
         ClientID: provesdkservergo.String("customer_id"),
         ClientSecret: provesdkservergo.String("secret"),
         GrantType: "client_credentials",
-        Password: provesdkservergo.String("password"),
-        Username: provesdkservergo.String("jdoe"),
     }
     ctx := context.Background()
     res, err := s.V3.V3TokenRequest(ctx, request)
@@ -225,7 +223,7 @@ func main() {
         Dob: provesdkservergo.String("2024-05-02T00:00:00Z"),
         EmailAddress: provesdkservergo.String("jdoe@example.com"),
         FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
-        FlowID: provesdkservergo.String("\"prove-standard-prefill-i1\""),
+        FlowID: provesdkservergo.String("prove-standard-prefill-i1"),
         FlowType: "mobile",
         IPAddress: provesdkservergo.String("10.0.0.1"),
         Last4SSN: provesdkservergo.String("1234"),
