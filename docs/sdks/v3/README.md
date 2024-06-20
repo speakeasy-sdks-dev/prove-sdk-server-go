@@ -28,8 +28,8 @@ import(
 func main() {
     s := provesdkservergo.New()
     var request *components.V3TokenRequest = &components.V3TokenRequest{
-        ClientID: provesdkservergo.String("customer_id"),
-        ClientSecret: provesdkservergo.String("secret"),
+        ClientID: "customer_id",
+        ClientSecret: "secret",
         GrantType: "client_credentials",
     }
     ctx := context.Background()
