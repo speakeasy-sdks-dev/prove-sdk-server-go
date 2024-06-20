@@ -172,11 +172,7 @@ import (
 )
 
 func main() {
-	s := provesdkservergo.New(
-		provesdkservergo.WithSecurity(components.Security{
-			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-		}),
-	)
+	s := provesdkservergo.New()
 	var request *components.V3TokenRequest = &components.V3TokenRequest{
 		ClientID:     provesdkservergo.String("customer_id"),
 		ClientSecret: provesdkservergo.String("secret"),
@@ -230,9 +226,6 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithServer("prod-us"),
-		provesdkservergo.WithSecurity(components.Security{
-			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-		}),
 	)
 	var request *components.V3TokenRequest = &components.V3TokenRequest{
 		ClientID:     provesdkservergo.String("customer_id"),
@@ -268,9 +261,6 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithServerURL("https://platform.uat.proveapis.com"),
-		provesdkservergo.WithSecurity(components.Security{
-			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-		}),
 	)
 	var request *components.V3TokenRequest = &components.V3TokenRequest{
 		ClientID:     provesdkservergo.String("customer_id"),
@@ -345,7 +335,8 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+			ClientID:     "<YOUR_CLIENT_ID_HERE>",
+			ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
 		}),
 	)
 	var request *components.V3TokenRequest = &components.V3TokenRequest{
