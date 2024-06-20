@@ -4,11 +4,11 @@ package components
 
 type V3TokenRequest struct {
 	// ClientID is the optional client ID.
-	ClientID *string `json:"client_id,omitempty"`
+	ClientID *string `form:"name=client_id"`
 	// ClientSecret is the client secret ID provided to the customer during onboarding.
-	ClientSecret *string `json:"client_secret,omitempty"`
+	ClientSecret *string `form:"name=client_secret"`
 	// GrantType only allows option: `client_credentials`.
-	GrantType string `json:"grant_type"`
+	GrantType string `form:"name=grant_type"`
 }
 
 func (o *V3TokenRequest) GetClientID() *string {

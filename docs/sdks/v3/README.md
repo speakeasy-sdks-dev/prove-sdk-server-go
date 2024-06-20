@@ -19,18 +19,14 @@ Send this request to request the OAuth token.
 package main
 
 import(
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"context"
 	"log"
 )
 
 func main() {
-    s := provesdkservergo.New(
-        provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-        }),
-    )
+    s := provesdkservergo.New()
     var request *components.V3TokenRequest = &components.V3TokenRequest{
         ClientID: provesdkservergo.String("customer_id"),
         ClientSecret: provesdkservergo.String("secret"),
@@ -82,7 +78,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientID: "<YOUR_CLIENT_ID_HERE>",
+            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
         }),
     )
     var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
@@ -136,7 +133,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientID: "<YOUR_CLIENT_ID_HERE>",
+            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
         }),
     )
     var request *components.V3CompleteRequest = &components.V3CompleteRequest{
@@ -215,7 +213,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientID: "<YOUR_CLIENT_ID_HERE>",
+            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
         }),
     )
     var request *components.V3StartRequest = &components.V3StartRequest{
@@ -275,7 +274,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientID: "<YOUR_CLIENT_ID_HERE>",
+            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
         }),
     )
     var request *components.V3ValidateRequest = &components.V3ValidateRequest{

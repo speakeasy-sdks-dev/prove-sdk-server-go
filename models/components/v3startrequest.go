@@ -5,7 +5,7 @@ package components
 type V3StartRequest struct {
 	// Device ID is the ID of the device. Acceptable characters are: alphanumeric with symbols '-._+=/'.
 	DeviceID *string `json:"deviceId,omitempty"`
-	// DOB, an optional challenge, is the date of birth in this format: YYYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
+	// DOB, an optional challenge, is the date of birth in this format: YYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
 	// Email is the email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
