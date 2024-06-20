@@ -17,10 +17,10 @@ type V3StartRequest struct {
 	FlowType string `json:"flowType"`
 	// IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
 	IPAddress *string `json:"ipAddress,omitempty"`
-	// Last4SSN, an optional challenge, is the last 4 numbers of the social security number. Acceptable characters are: numeric.
-	Last4SSN *string `json:"last4SSN,omitempty"`
 	// Phone number is the number of the mobile phone. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	// SSN, an optional challenge, is either the full or last 4 digits of the the social security number. Acceptable characters are: numeric.
+	Ssn *string `json:"ssn,omitempty"`
 }
 
 func (o *V3StartRequest) GetDeviceID() *string {
@@ -72,16 +72,16 @@ func (o *V3StartRequest) GetIPAddress() *string {
 	return o.IPAddress
 }
 
-func (o *V3StartRequest) GetLast4SSN() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Last4SSN
-}
-
 func (o *V3StartRequest) GetPhoneNumber() *string {
 	if o == nil {
 		return nil
 	}
 	return o.PhoneNumber
+}
+
+func (o *V3StartRequest) GetSsn() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ssn
 }

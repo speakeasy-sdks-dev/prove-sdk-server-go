@@ -7,8 +7,8 @@ type V3ChallengeRequest struct {
 	CorrelationID string `json:"correlationId"`
 	// DOB is the date of birth in this format: YYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
-	// Last4SSN is the last 4 numbers of the social security number. Acceptable characters are: numeric.
-	Last4SSN *string `json:"last4SSN,omitempty"`
+	// SSN is either the full or last 4 numbers of the social security number. Acceptable characters are: numeric.
+	Ssn *string `json:"ssn,omitempty"`
 }
 
 func (o *V3ChallengeRequest) GetCorrelationID() string {
@@ -25,9 +25,9 @@ func (o *V3ChallengeRequest) GetDob() *string {
 	return o.Dob
 }
 
-func (o *V3ChallengeRequest) GetLast4SSN() *string {
+func (o *V3ChallengeRequest) GetSsn() *string {
 	if o == nil {
 		return nil
 	}
-	return o.Last4SSN
+	return o.Ssn
 }
