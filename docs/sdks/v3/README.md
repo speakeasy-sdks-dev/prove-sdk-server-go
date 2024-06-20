@@ -85,7 +85,7 @@ func main() {
     var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
         Dob: provesdkservergo.String("2024-05-02T00:00:00Z"),
-        Last4SSN: provesdkservergo.String("1234"),
+        Ssn: provesdkservergo.String("1234"),
     }
     ctx := context.Background()
     res, err := s.V3.V3ChallengeRequest(ctx, request)
@@ -225,8 +225,8 @@ func main() {
         FlowID: provesdkservergo.String("prove-standard-prefill-i1"),
         FlowType: "mobile",
         IPAddress: provesdkservergo.String("10.0.0.1"),
-        Last4SSN: provesdkservergo.String("1234"),
-        PhoneNumber: provesdkservergo.String("12065550100"),
+        PhoneNumber: provesdkservergo.String("2001001686"),
+        Ssn: provesdkservergo.String("1234"),
     }
     ctx := context.Background()
     res, err := s.V3.V3StartRequest(ctx, request)
