@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: fae3514af279ad2ed973d28205c2feac
+  docChecksum: 19777513376edaeea7b792577b099de5
   docVersion: 1.0.0
-  speakeasyVersion: 1.310.1
+  speakeasyVersion: 1.313.2
   generationVersion: 2.347.8
-  releaseVersion: 0.4.8
-  configChecksum: a56da98ec395a3e18ffa91c01951206e
+  releaseVersion: 0.4.9
+  configChecksum: 06480d5c2895a5c55d46a94a4b9508dd
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
