@@ -5,7 +5,7 @@ package components
 type V3ChallengeRequest struct {
 	// Correlation ID is the unique ID of the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow.
 	CorrelationID string `json:"correlationId"`
-	// DOB is the date of birth in this format: YYYY-MM-DD. Acceptable characters are: numeric with symbol '-'.
+	// DOB, an optional challenge, is the date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
 	// SSN is either the full or last 4 numbers of the social security number. Acceptable characters are: numeric.
 	Ssn *string `json:"ssn,omitempty"`
