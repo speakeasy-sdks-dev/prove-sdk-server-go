@@ -3,19 +3,27 @@
 package components
 
 type V3CompleteResponse struct {
-	// ChangeDetected returns true if the individual information changed.
-	ChangeDetected bool `json:"changeDetected"`
+	Idv *IDVData `json:"idv,omitempty"`
+	// Kyc contains optional KYC data to be returned.
+	Kyc *string `json:"kyc,omitempty"`
 	// Next contains the next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// Success returns true if the individual was verified successfully.
 	Success bool `json:"success"`
 }
 
-func (o *V3CompleteResponse) GetChangeDetected() bool {
+func (o *V3CompleteResponse) GetIdv() *IDVData {
 	if o == nil {
-		return false
+		return nil
 	}
-	return o.ChangeDetected
+	return o.Idv
+}
+
+func (o *V3CompleteResponse) GetKyc() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Kyc
 }
 
 func (o *V3CompleteResponse) GetNext() map[string]string {

@@ -3,31 +3,20 @@
 package components
 
 type V3StartRequest struct {
-	// Device ID is the ID of the device. Acceptable characters are: alphanumeric with symbols '-._+=/'.
-	DeviceID *string `json:"deviceId,omitempty"`
 	// DOB, an optional challenge, is the date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
 	// Email is the email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// Final target URL is the URL where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+	// Final target URL is only required for when flowType=desktop. The final target URL is where the end user will be redirected at the end of Instant Link flow. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
-	// Flow ID defines which flow to use during the transaction.
-	FlowID *string `json:"flowId,omitempty"`
 	// Flow type is based on the method used - either 'desktop' if using desktop or 'mobile' for iOS/Android native apps and mobile web. Acceptable options are: 'desktop' or 'mobile'.
 	FlowType string `json:"flowType"`
 	// IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
 	IPAddress *string `json:"ipAddress,omitempty"`
-	// Phone number is the number of the mobile phone. Acceptable characters are: alphanumeric with symbols '+'.
+	// Phone number is the number of the mobile phone. The field is required in the Sandbox environment. It is also required in the Production environment when flowType=desktop and when flowType=Mobile during Phase 1 of implementation. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// SSN, an optional challenge, is either the full or last 4 digits of the the social security number. Acceptable characters are: numeric.
 	Ssn *string `json:"ssn,omitempty"`
-}
-
-func (o *V3StartRequest) GetDeviceID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.DeviceID
 }
 
 func (o *V3StartRequest) GetDob() *string {
@@ -49,13 +38,6 @@ func (o *V3StartRequest) GetFinalTargetURL() *string {
 		return nil
 	}
 	return o.FinalTargetURL
-}
-
-func (o *V3StartRequest) GetFlowID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.FlowID
 }
 
 func (o *V3StartRequest) GetFlowType() string {

@@ -17,11 +17,9 @@ func main() {
 		}),
 	)
 	var request *components.V3StartRequest = &components.V3StartRequest{
-		DeviceID:       provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
 		Dob:            provesdkservergo.String("2024-05-02T00:00:00Z"),
 		EmailAddress:   provesdkservergo.String("jdoe@example.com"),
 		FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
-		FlowID:         provesdkservergo.String("prove-standard-prefill-i1"),
 		FlowType:       "mobile",
 		IPAddress:      provesdkservergo.String("10.0.0.1"),
 		PhoneNumber:    provesdkservergo.String("2001001686"),
