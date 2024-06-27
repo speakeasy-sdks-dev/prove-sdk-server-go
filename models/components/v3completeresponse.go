@@ -4,8 +4,8 @@ package components
 
 type V3CompleteResponse struct {
 	Idv *IDVData `json:"idv,omitempty"`
-	// Kyc contains optional KYC data to be returned.
-	Kyc *string `json:"kyc,omitempty"`
+	// KnowYourCustomerResponse - KYC response
+	Kyc *KnowYourCustomerResponse `json:"kyc,omitempty"`
 	// Next contains the next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// Success returns true if the individual was verified successfully.
@@ -19,7 +19,7 @@ func (o *V3CompleteResponse) GetIdv() *IDVData {
 	return o.Idv
 }
 
-func (o *V3CompleteResponse) GetKyc() *string {
+func (o *V3CompleteResponse) GetKyc() *KnowYourCustomerResponse {
 	if o == nil {
 		return nil
 	}
