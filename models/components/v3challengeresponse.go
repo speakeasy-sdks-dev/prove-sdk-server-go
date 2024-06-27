@@ -3,16 +3,16 @@
 package components
 
 type V3ChallengeResponse struct {
-	Individual V3ChallengeIndividualRequest `json:"individual"`
+	Individual *V3ChallengeIndividualRequest `json:"individual,omitempty"`
 	// Next contains the next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// Success returns true if the challenge was accepted and user info retrieved.
 	Success bool `json:"success"`
 }
 
-func (o *V3ChallengeResponse) GetIndividual() V3ChallengeIndividualRequest {
+func (o *V3ChallengeResponse) GetIndividual() *V3ChallengeIndividualRequest {
 	if o == nil {
-		return V3ChallengeIndividualRequest{}
+		return nil
 	}
 	return o.Individual
 }

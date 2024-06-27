@@ -3,16 +3,16 @@
 package components
 
 type DataSource struct {
-	Address       *string  `json:"address,omitempty"`
-	CipConfidence *string  `json:"cipConfidence,omitempty"`
-	Email         *string  `json:"email,omitempty"`
-	Identifiers   *string  `json:"identifiers,omitempty"`
-	Name          *string  `json:"name,omitempty"`
-	ReasonCodes   []string `json:"reasonCodes,omitempty"`
-	Verified      *bool    `json:"verified,omitempty"`
+	Address       *AddressResponse      `json:"address,omitempty"`
+	CipConfidence *string               `json:"cipConfidence,omitempty"`
+	Email         *EmailAddressResponse `json:"email,omitempty"`
+	Identifiers   *IdentifiersResponse  `json:"identifiers,omitempty"`
+	Name          *NameResponse         `json:"name,omitempty"`
+	ReasonCodes   []string              `json:"reasonCodes,omitempty"`
+	Verified      *bool                 `json:"verified,omitempty"`
 }
 
-func (o *DataSource) GetAddress() *string {
+func (o *DataSource) GetAddress() *AddressResponse {
 	if o == nil {
 		return nil
 	}
@@ -26,21 +26,21 @@ func (o *DataSource) GetCipConfidence() *string {
 	return o.CipConfidence
 }
 
-func (o *DataSource) GetEmail() *string {
+func (o *DataSource) GetEmail() *EmailAddressResponse {
 	if o == nil {
 		return nil
 	}
 	return o.Email
 }
 
-func (o *DataSource) GetIdentifiers() *string {
+func (o *DataSource) GetIdentifiers() *IdentifiersResponse {
 	if o == nil {
 		return nil
 	}
 	return o.Identifiers
 }
 
-func (o *DataSource) GetName() *string {
+func (o *DataSource) GetName() *NameResponse {
 	if o == nil {
 		return nil
 	}
