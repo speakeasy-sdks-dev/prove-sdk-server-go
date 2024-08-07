@@ -1,4 +1,4 @@
-# FieldTypeResponse
+# KYCFieldTypeResponseInternal
 
 
 ## Fields

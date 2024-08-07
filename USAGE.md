@@ -12,8 +12,8 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     "<YOUR_CLIENT_ID_HERE>",
-			ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
 		}),
 	)
 	var request *components.V3StartRequest = &components.V3StartRequest{

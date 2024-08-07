@@ -1,25 +1,28 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 50188f028e8e9a8924078cdaf549a29a
+  docChecksum: d2889a17f0a6848772ba5deb903d9870
   docVersion: 1.0.0
-  speakeasyVersion: 1.321.0
-  generationVersion: 2.354.2
-  releaseVersion: 0.4.11
-  configChecksum: 241dea0543692a7055ff8f429fe61711
+  speakeasyVersion: 1.356.0
+  generationVersion: 2.388.1
+  releaseVersion: 0.5.0
+  configChecksum: f143c7919c1d39cf8dabce4c8b46eadc
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.4.14
+    core: 3.5.3
+    defaultEnabledRetries: 0.2.0
+    envVarSecurityUsage: 0.3.0
     examples: 2.81.3
-    globalSecurity: 2.82.9
+    globalSecurity: 2.82.10
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
     oauth2ClientCredentials: 0.1.1
     responseFormat: 0.1.2
+    retries: 2.83.0
     sdkHooks: 0.1.0
     serverIDs: 2.81.1
 generatedFiles:
@@ -27,6 +30,7 @@ generatedFiles:
   - provesdkservergo.go
   - go.mod
   - models/sdkerrors/sdkerror.go
+  - retry/config.go
   - types/bigint.go
   - types/date.go
   - types/datetime.go
@@ -55,16 +59,16 @@ generatedFiles:
   - /models/components/v3challengeaddressentryrequest.go
   - /models/components/v3challengerequest.go
   - /models/components/v3completeresponse.go
-  - /models/components/knowyourcustomerresponse.go
-  - /models/components/amltypelistresponse.go
-  - /models/components/fieldtyperesponse.go
-  - /models/components/adversemediaresponse.go
-  - /models/components/idvdata.go
-  - /models/components/datasource.go
-  - /models/components/nameresponse.go
-  - /models/components/identifiersresponse.go
-  - /models/components/emailaddressresponse.go
-  - /models/components/addressresponse.go
+  - /models/components/kycinternal.go
+  - /models/components/amltypelistresponseinternal.go
+  - /models/components/kycfieldtyperesponseinternal.go
+  - /models/components/adversemediaresponseinternal.go
+  - /models/components/idvdatainternal.go
+  - /models/components/datasourceinternal.go
+  - /models/components/datasourcenameresponseinternal.go
+  - /models/components/datasourceidentifiersresponseinternal.go
+  - /models/components/datasourceemailaddressresponseinternal.go
+  - /models/components/datasourceaddressresponseinternal.go
   - /models/components/v3completerequest.go
   - /models/components/v3completeindividualrequest.go
   - /models/components/v3completeaddressentryrequest.go
@@ -87,16 +91,16 @@ generatedFiles:
   - docs/models/components/v3challengeaddressentryrequest.md
   - docs/models/components/v3challengerequest.md
   - docs/models/components/v3completeresponse.md
-  - docs/models/components/knowyourcustomerresponse.md
-  - docs/models/components/amltypelistresponse.md
-  - docs/models/components/fieldtyperesponse.md
-  - docs/models/components/adversemediaresponse.md
-  - docs/models/components/idvdata.md
-  - docs/models/components/datasource.md
-  - docs/models/components/nameresponse.md
-  - docs/models/components/identifiersresponse.md
-  - docs/models/components/emailaddressresponse.md
-  - docs/models/components/addressresponse.md
+  - docs/models/components/kycinternal.md
+  - docs/models/components/amltypelistresponseinternal.md
+  - docs/models/components/kycfieldtyperesponseinternal.md
+  - docs/models/components/adversemediaresponseinternal.md
+  - docs/models/components/idvdatainternal.md
+  - docs/models/components/datasourceinternal.md
+  - docs/models/components/datasourcenameresponseinternal.md
+  - docs/models/components/datasourceidentifiersresponseinternal.md
+  - docs/models/components/datasourceemailaddressresponseinternal.md
+  - docs/models/components/datasourceaddressresponseinternal.md
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeindividualrequest.md
   - docs/models/components/v3completeaddressentryrequest.md
@@ -107,8 +111,11 @@ generatedFiles:
   - docs/models/components/security.md
   - docs/models/sdkerrors/error.md
   - docs/sdks/provesdkservergo/README.md
+  - docs/models/operations/option.md
   - docs/sdks/v3/README.md
   - USAGE.md
+  - models/operations/options.go
   - .gitattributes
   - internal/hooks/hooks.go
   - internal/hooks/clientcredentials.go
+  - CONTRIBUTING.md

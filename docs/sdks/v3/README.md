@@ -49,6 +49,7 @@ func main() {
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
 | `request`                                                              | [components.V3TokenRequest](../../models/components/v3tokenrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
 
 
 ### Response
@@ -61,7 +62,7 @@ func main() {
 
 ## V3ChallengeRequest
 
-Send this request to submit challenge information. Either a DOB or last 4 of SSN needs to be submitted if neither was submitted to the /start endpoint. It will return a correlation ID, user information, and the next step to call in the flow.
+Send this request to submit challenge information. Either a DOB or last 4 of SSN needs to be submitted if neither was submitted to the /start endpoint (challenge fields submitted to this endpoint will overwrite the /start endpoint fields submitted). It will return a correlation ID, user information, and the next step to call in the flow. This capability is only available in Prove Pre-Fill®, it's not available in Prove Identity®. You'll notice that when using Prove Identity®, if /validate is successful, it will then return `v3-complete` as one of the keys in the `Next` field map instead of `v3-challenge`.
 
 ### Example Usage
 
@@ -78,8 +79,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: "<YOUR_CLIENT_ID_HERE>",
-            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
     var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
@@ -104,6 +105,7 @@ func main() {
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
 | `request`                                                                      | [components.V3ChallengeRequest](../../models/components/v3challengerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `opts`                                                                         | [][operations.Option](../../models/operations/option.md)                       | :heavy_minus_sign:                                                             | The options for this request.                                                  |
 
 
 ### Response
@@ -116,7 +118,7 @@ func main() {
 
 ## V3CompleteRequest
 
-Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow.
+Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify an individual.
 
 ### Example Usage
 
@@ -133,8 +135,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: "<YOUR_CLIENT_ID_HERE>",
-            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
     var request *components.V3CompleteRequest = &components.V3CompleteRequest{
@@ -184,6 +186,7 @@ func main() {
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
 | `request`                                                                    | [components.V3CompleteRequest](../../models/components/v3completerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
 
 
 ### Response
@@ -213,8 +216,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: "<YOUR_CLIENT_ID_HERE>",
-            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
     var request *components.V3StartRequest = &components.V3StartRequest{
@@ -243,6 +246,7 @@ func main() {
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
 | `request`                                                              | [components.V3StartRequest](../../models/components/v3startrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
 
 
 ### Response
@@ -272,8 +276,8 @@ import(
 func main() {
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: "<YOUR_CLIENT_ID_HERE>",
-            ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
     var request *components.V3ValidateRequest = &components.V3ValidateRequest{
@@ -296,6 +300,7 @@ func main() {
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
 | `request`                                                                    | [components.V3ValidateRequest](../../models/components/v3validaterequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
 
 
 ### Response
