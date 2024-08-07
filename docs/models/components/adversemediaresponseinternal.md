@@ -1,4 +1,4 @@
-# AdverseMediaResponse
+# AdverseMediaResponseInternal
 
 
 ## Fields

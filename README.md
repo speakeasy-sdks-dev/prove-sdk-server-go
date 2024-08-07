@@ -314,14 +314,13 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 ### Per-Client Security Schemes
 
-This SDK supports the following security schemes globally:
+This SDK supports the following security scheme globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `ClientID`     | oauth2         | OAuth2 token   |
-| `ClientSecret` | oauth2         | OAuth2 token   |
+| Name                           | Type                           | Scheme                         |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| `ClientID` `ClientSecret`      | oauth2                         | OAuth2 Client Credentials Flow |
 
-You can set the security parameters through the `WithSecurity` option when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go
 package main
 
@@ -335,8 +334,8 @@ import (
 func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     "<YOUR_CLIENT_ID_HERE>",
-			ClientSecret: "<YOUR_CLIENT_SECRET_HERE>",
+			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
 		}),
 	)
 	var request *components.V3TokenRequest = &components.V3TokenRequest{
@@ -358,6 +357,97 @@ func main() {
 <!-- End Authentication [security] -->
 
 <!-- No Special Types [types] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a `retry.Config` object to the call by using the `WithRetries` option:
+```go
+package main
+
+import (
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/retry"
+	"log"
+	"models/operations"
+)
+
+func main() {
+	s := provesdkservergo.New()
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     "customer_id",
+		ClientSecret: "secret",
+		GrantType:    "client_credentials",
+	}
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, request, operations.WithRetries(
+		retry.Config{
+			Strategy: "backoff",
+			Backoff: &retry.BackoffStrategy{
+				InitialInterval: 1,
+				MaxInterval:     50,
+				Exponent:        1.1,
+				MaxElapsedTime:  100,
+			},
+			RetryConnectionErrors: false,
+		}))
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.V3TokenResponse != nil {
+		// handle response
+	}
+}
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can use the `WithRetryConfig` option at SDK initialization:
+```go
+package main
+
+import (
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"github.com/prove-identity/prove-sdk-server-go/retry"
+	"log"
+)
+
+func main() {
+	s := provesdkservergo.New(
+		provesdkservergo.WithRetryConfig(
+			retry.Config{
+				Strategy: "backoff",
+				Backoff: &retry.BackoffStrategy{
+					InitialInterval: 1,
+					MaxInterval:     50,
+					Exponent:        1.1,
+					MaxElapsedTime:  100,
+				},
+				RetryConnectionErrors: false,
+			}),
+	)
+	var request *components.V3TokenRequest = &components.V3TokenRequest{
+		ClientID:     "customer_id",
+		ClientSecret: "secret",
+		GrantType:    "client_credentials",
+	}
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, request)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.V3TokenResponse != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Retries [retries] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
