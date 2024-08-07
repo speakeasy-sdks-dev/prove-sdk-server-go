@@ -56,8 +56,8 @@ func flow() error {
 	client := provesdkservergo.New(
 		provesdkservergo.WithServer(proveEnv),
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     clientID,
-			ClientSecret: clientSecret,
+			ClientID:     provesdkservergo.String(clientID),
+			ClientSecret: provesdkservergo.String(clientSecret),
 		}),
 	)
 
