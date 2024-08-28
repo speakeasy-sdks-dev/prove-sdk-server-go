@@ -7,10 +7,10 @@ type V3TokenResponse struct {
 	AccessToken string `json:"access_token"`
 	// ExpiresIn returns the lifetime of the token in seconds.
 	ExpiresIn int64 `json:"expires_in"`
-	// RefreshExpiresIn returns the lifetime of the token in seconds.
-	RefreshExpiresIn int64 `json:"refresh_expires_in"`
-	// RefreshToken returns the refresh token as a string.
-	RefreshToken string `json:"refresh_token"`
+	// RefreshExpiresIn returns the lifetime of the token in seconds. Not currently supported.
+	RefreshExpiresIn *int64 `json:"refresh_expires_in,omitempty"`
+	// RefreshToken returns the refresh token as a string. Not currently supported.
+	RefreshToken *string `json:"refresh_token,omitempty"`
 	// TokenType returns the type of token.
 	TokenType string `json:"token_type"`
 }
@@ -29,16 +29,16 @@ func (o *V3TokenResponse) GetExpiresIn() int64 {
 	return o.ExpiresIn
 }
 
-func (o *V3TokenResponse) GetRefreshExpiresIn() int64 {
+func (o *V3TokenResponse) GetRefreshExpiresIn() *int64 {
 	if o == nil {
-		return 0
+		return nil
 	}
 	return o.RefreshExpiresIn
 }
 
-func (o *V3TokenResponse) GetRefreshToken() string {
+func (o *V3TokenResponse) GetRefreshToken() *string {
 	if o == nil {
-		return ""
+		return nil
 	}
 	return o.RefreshToken
 }

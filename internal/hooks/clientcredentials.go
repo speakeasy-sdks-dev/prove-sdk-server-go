@@ -13,6 +13,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 	"strings"
 	"time"
 )
@@ -200,11 +201,23 @@ func (c *clientCredentialsHook) getCredentials(ctx context.Context, source func(
 	if security.ClientID == nil || security.ClientSecret == nil {
 		return nil, nil
 	}
+	if security.TokenURL == nil {
+		secType := reflect.TypeOf(security)
+		if secType.Kind() == reflect.Ptr {
+			secType = secType.Elem()
+		}
+		tokenURLField, ok := secType.FieldByName("TokenURL")
+		if !ok {
+			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
+		}
+		tokenURLDefault := tokenURLField.Tag.Get("default")
+		security.TokenURL = &tokenURLDefault
+	}
 
 	return &credentials{
 		ClientID:     *security.ClientID,
 		ClientSecret: *security.ClientSecret,
-		TokenURL:     *security.GetTokenURL(),
+		TokenURL:     *security.TokenURL,
 	}, nil
 }
 

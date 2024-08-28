@@ -1,6 +1,8 @@
 # V3
 (*V3*)
 
+## Overview
+
 ### Available Operations
 
 * [V3TokenRequest](#v3tokenrequest) - Request OAuth token.
@@ -51,14 +53,17 @@ func main() {
 | `request`                                                              | [components.V3TokenRequest](../../models/components/v3tokenrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
 | `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
 
-
 ### Response
 
 **[*operations.V3TokenRequestResponse](../../models/operations/v3tokenrequestresponse.md), error**
+
+### Errors
+
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error    | 400,500            | application/json   |
 | sdkerrors.SDKError | 4xx-5xx            | */*                |
+
 
 ## V3ChallengeRequest
 
@@ -85,8 +90,8 @@ func main() {
     )
     var request *components.V3ChallengeRequest = &components.V3ChallengeRequest{
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
-        Dob: provesdkservergo.String("2024-05-02T00:00:00Z"),
-        Ssn: provesdkservergo.String("1234"),
+        Dob: provesdkservergo.String("1981-01"),
+        Ssn: provesdkservergo.String("0596"),
     }
     ctx := context.Background()
     res, err := s.V3.V3ChallengeRequest(ctx, request)
@@ -107,18 +112,21 @@ func main() {
 | `request`                                                                      | [components.V3ChallengeRequest](../../models/components/v3challengerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 | `opts`                                                                         | [][operations.Option](../../models/operations/option.md)                       | :heavy_minus_sign:                                                             | The options for this request.                                                  |
 
-
 ### Response
 
 **[*operations.V3ChallengeRequestResponse](../../models/operations/v3challengerequestresponse.md), error**
+
+### Errors
+
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error    | 400,500            | application/json   |
 | sdkerrors.SDKError | 4xx-5xx            | */*                |
 
+
 ## V3CompleteRequest
 
-Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify an individual.
+Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify ownership.
 
 ### Example Usage
 
@@ -188,14 +196,17 @@ func main() {
 | `request`                                                                    | [components.V3CompleteRequest](../../models/components/v3completerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 | `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
 
-
 ### Response
 
 **[*operations.V3CompleteRequestResponse](../../models/operations/v3completerequestresponse.md), error**
+
+### Errors
+
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error    | 400,500            | application/json   |
 | sdkerrors.SDKError | 4xx-5xx            | */*                |
+
 
 ## V3StartRequest
 
@@ -221,13 +232,13 @@ func main() {
         }),
     )
     var request *components.V3StartRequest = &components.V3StartRequest{
-        Dob: provesdkservergo.String("2024-05-02T00:00:00Z"),
-        EmailAddress: provesdkservergo.String("jdoe@example.com"),
+        Dob: provesdkservergo.String("1981-01"),
+        EmailAddress: provesdkservergo.String("mpinsonm@dyndns.org"),
         FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
         FlowType: "mobile",
         IPAddress: provesdkservergo.String("10.0.0.1"),
-        PhoneNumber: provesdkservergo.String("2001001686"),
-        Ssn: provesdkservergo.String("1234"),
+        PhoneNumber: provesdkservergo.String("2001001695"),
+        Ssn: provesdkservergo.String("0596"),
     }
     ctx := context.Background()
     res, err := s.V3.V3StartRequest(ctx, request)
@@ -248,14 +259,17 @@ func main() {
 | `request`                                                              | [components.V3StartRequest](../../models/components/v3startrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
 | `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
 
-
 ### Response
 
 **[*operations.V3StartRequestResponse](../../models/operations/v3startrequestresponse.md), error**
+
+### Errors
+
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error    | 400,500            | application/json   |
 | sdkerrors.SDKError | 4xx-5xx            | */*                |
+
 
 ## V3ValidateRequest
 
@@ -302,10 +316,12 @@ func main() {
 | `request`                                                                    | [components.V3ValidateRequest](../../models/components/v3validaterequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 | `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
 
-
 ### Response
 
 **[*operations.V3ValidateRequestResponse](../../models/operations/v3validaterequestresponse.md), error**
+
+### Errors
+
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error    | 400,500            | application/json   |

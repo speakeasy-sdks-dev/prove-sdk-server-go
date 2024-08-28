@@ -412,7 +412,7 @@ func (s *V3) V3ChallengeRequest(ctx context.Context, request *components.V3Chall
 }
 
 // V3CompleteRequest - Complete flow.
-// Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify an individual.
+// Send this request to verify the user and complete the flow. It will return a correlation ID, user information, and the next step to call in the flow. At least a first name, last name, or SSN is required to verify ownership.
 func (s *V3) V3CompleteRequest(ctx context.Context, request *components.V3CompleteRequest, opts ...operations.Option) (*operations.V3CompleteRequestResponse, error) {
 	hookCtx := hooks.HookContext{
 		Context:        ctx,

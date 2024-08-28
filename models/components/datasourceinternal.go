@@ -9,7 +9,6 @@ type DataSourceInternal struct {
 	Identifiers   *DataSourceIdentifiersResponseInternal  `json:"identifiers,omitempty"`
 	Name          *DataSourceNameResponseInternal         `json:"name,omitempty"`
 	ReasonCodes   []string                                `json:"reasonCodes,omitempty"`
-	Verified      *bool                                   `json:"verified,omitempty"`
 }
 
 func (o *DataSourceInternal) GetAddress() *DataSourceAddressResponseInternal {
@@ -52,11 +51,4 @@ func (o *DataSourceInternal) GetReasonCodes() []string {
 		return nil
 	}
 	return o.ReasonCodes
-}
-
-func (o *DataSourceInternal) GetVerified() *bool {
-	if o == nil {
-		return nil
-	}
-	return o.Verified
 }

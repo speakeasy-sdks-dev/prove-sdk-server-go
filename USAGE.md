@@ -17,13 +17,13 @@ func main() {
 		}),
 	)
 	var request *components.V3StartRequest = &components.V3StartRequest{
-		Dob:            provesdkservergo.String("2024-05-02T00:00:00Z"),
-		EmailAddress:   provesdkservergo.String("jdoe@example.com"),
+		Dob:            provesdkservergo.String("1981-01"),
+		EmailAddress:   provesdkservergo.String("mpinsonm@dyndns.org"),
 		FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
 		FlowType:       "mobile",
 		IPAddress:      provesdkservergo.String("10.0.0.1"),
-		PhoneNumber:    provesdkservergo.String("2001001686"),
-		Ssn:            provesdkservergo.String("1234"),
+		PhoneNumber:    provesdkservergo.String("2001001695"),
+		Ssn:            provesdkservergo.String("0596"),
 	}
 	ctx := context.Background()
 	res, err := s.V3.V3StartRequest(ctx, request)

@@ -4,13 +4,12 @@ package components
 
 import (
 	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
-	"github.com/prove-identity/prove-sdk-server-go/types"
 )
 
 type Security struct {
 	ClientID     *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientID"`
 	ClientSecret *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientSecret"`
-	tokenURL     *string `const:"/token"`
+	TokenURL     *string `default:"/token"`
 }
 
 func (s Security) MarshalJSON() ([]byte, error) {
@@ -39,5 +38,8 @@ func (o *Security) GetClientSecret() *string {
 }
 
 func (o *Security) GetTokenURL() *string {
-	return types.String("/token")
+	if o == nil {
+		return nil
+	}
+	return o.TokenURL
 }

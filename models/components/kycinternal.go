@@ -3,24 +3,8 @@
 package components
 
 type KYCInternal struct {
-	AdverseMediaList []AdverseMediaResponseInternal `json:"adverseMediaList,omitempty"`
-	AliasList        []string                       `json:"aliasList,omitempty"`
-	AmlTypeLists     []AmlTypeListResponseInternal  `json:"amlTypeLists,omitempty"`
-	TotalHits        *int64                         `json:"totalHits,omitempty"`
-}
-
-func (o *KYCInternal) GetAdverseMediaList() []AdverseMediaResponseInternal {
-	if o == nil {
-		return nil
-	}
-	return o.AdverseMediaList
-}
-
-func (o *KYCInternal) GetAliasList() []string {
-	if o == nil {
-		return nil
-	}
-	return o.AliasList
+	AmlTypeLists []AmlTypeListResponseInternal `json:"amlTypeLists,omitempty"`
+	TotalHits    *int64                        `json:"totalHits,omitempty"`
 }
 
 func (o *KYCInternal) GetAmlTypeLists() []AmlTypeListResponseInternal {
