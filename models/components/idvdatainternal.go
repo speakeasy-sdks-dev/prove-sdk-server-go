@@ -6,7 +6,6 @@ type IDVDataInternal struct {
 	DataSource1        *DataSourceInternal `json:"dataSource1,omitempty"`
 	DataSource2        *DataSourceInternal `json:"dataSource2,omitempty"`
 	MultiCIPConfidence *string             `json:"multiCIPConfidence,omitempty"`
-	MultiVerified      *bool               `json:"multiVerified,omitempty"`
 }
 
 func (o *IDVDataInternal) GetDataSource1() *DataSourceInternal {
@@ -28,11 +27,4 @@ func (o *IDVDataInternal) GetMultiCIPConfidence() *string {
 		return nil
 	}
 	return o.MultiCIPConfidence
-}
-
-func (o *IDVDataInternal) GetMultiVerified() *bool {
-	if o == nil {
-		return nil
-	}
-	return o.MultiVerified
 }

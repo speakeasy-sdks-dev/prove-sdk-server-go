@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: d2889a17f0a6848772ba5deb903d9870
+  docChecksum: d5085c37725b62fbab7461d9c263a9ed
   docVersion: 1.0.0
-  speakeasyVersion: 1.356.0
-  generationVersion: 2.388.1
-  releaseVersion: 0.5.0
-  configChecksum: f143c7919c1d39cf8dabce4c8b46eadc
+  speakeasyVersion: 1.381.4
+  generationVersion: 2.404.9
+  releaseVersion: 0.6.0
+  configChecksum: 2cf7a5fe9fceab34f14d44cee2d521f2
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.5.3
+    core: 3.5.5
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.0
     examples: 2.81.3
@@ -20,7 +20,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
-    oauth2ClientCredentials: 0.1.1
+    oauth2ClientCredentials: 0.2.0
     responseFormat: 0.1.2
     retries: 2.83.0
     sdkHooks: 0.1.0
@@ -62,7 +62,6 @@ generatedFiles:
   - /models/components/kycinternal.go
   - /models/components/amltypelistresponseinternal.go
   - /models/components/kycfieldtyperesponseinternal.go
-  - /models/components/adversemediaresponseinternal.go
   - /models/components/idvdatainternal.go
   - /models/components/datasourceinternal.go
   - /models/components/datasourcenameresponseinternal.go
@@ -94,7 +93,6 @@ generatedFiles:
   - docs/models/components/kycinternal.md
   - docs/models/components/amltypelistresponseinternal.md
   - docs/models/components/kycfieldtyperesponseinternal.md
-  - docs/models/components/adversemediaresponseinternal.md
   - docs/models/components/idvdatainternal.md
   - docs/models/components/datasourceinternal.md
   - docs/models/components/datasourcenameresponseinternal.md
