@@ -4,9 +4,32 @@
     <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
 </div>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Prove APIs: This specification describes the Prove API.
+
+OpenAPI Spec - generated.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Special Types](#special-types)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
+To add the SDK as a dependency to your project:
 ```bash
 go get github.com/prove-identity/prove-sdk-server-go
 ```
@@ -138,6 +161,10 @@ func flow() error {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
+
 ### [V3](docs/sdks/v3/README.md)
 
 * [V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
@@ -145,6 +172,8 @@ func flow() error {
 * [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
 * [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
@@ -154,7 +183,8 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400,500            | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ### Example
@@ -173,14 +203,20 @@ import (
 
 func main() {
 	s := provesdkservergo.New()
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
+
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
 		GrantType:    "client_credentials",
-	}
-	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request)
+	})
 	if err != nil {
+
+		var e *sdkerrors.Error400
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 
 		var e *sdkerrors.Error
 		if errors.As(err, &e) {
@@ -227,13 +263,13 @@ func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithServer("prod-us"),
 	)
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
+
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
 		GrantType:    "client_credentials",
-	}
-	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -262,13 +298,13 @@ func main() {
 	s := provesdkservergo.New(
 		provesdkservergo.WithServerURL("https://platform.uat.proveapis.com"),
 	)
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
+
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
 		GrantType:    "client_credentials",
-	}
-	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -338,13 +374,13 @@ func main() {
 			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
 		}),
 	)
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
+
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
 		GrantType:    "client_credentials",
-	}
-	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -378,13 +414,13 @@ import (
 
 func main() {
 	s := provesdkservergo.New()
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
+
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
 		GrantType:    "client_credentials",
-	}
-	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request, operations.WithRetries(
+	}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -431,13 +467,13 @@ func main() {
 				RetryConnectionErrors: false,
 			}),
 	)
-	var request *components.V3TokenRequest = &components.V3TokenRequest{
+
+	ctx := context.Background()
+	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
 		GrantType:    "client_credentials",
-	}
-	ctx := context.Background()
-	res, err := s.V3.V3TokenRequest(ctx, request)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

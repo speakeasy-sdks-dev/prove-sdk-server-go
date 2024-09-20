@@ -11,8 +11,6 @@ type V3CompleteIndividualRequest struct {
 	EmailAddresses []string `json:"emailAddresses,omitempty"`
 	// First name of the individual.
 	FirstName *string `json:"firstName,omitempty"`
-	// Last4SSN is last 4 digits of SSN.
-	Last4SSN *string `json:"last4SSN,omitempty"`
 	// Last name of the individual.
 	LastName *string `json:"lastName,omitempty"`
 	// SSN is the social security number of the individual.
@@ -45,13 +43,6 @@ func (o *V3CompleteIndividualRequest) GetFirstName() *string {
 		return nil
 	}
 	return o.FirstName
-}
-
-func (o *V3CompleteIndividualRequest) GetLast4SSN() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Last4SSN
 }
 
 func (o *V3CompleteIndividualRequest) GetLastName() *string {

@@ -15,6 +15,13 @@ type V3StartRequest struct {
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// Phone number is the number of the mobile phone. The field is required in the Sandbox environment. In Production, you will likely pass the phone number via the Prove Link client SDK instead of within the Start call depending on how your user experience is implemented. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	// SMSMessage is an optional field to customize the message body sent in the Instant Link (flowType=desktop) or OTP (on mobile) SMS message.
+	// If not provided, the following default messages will be used:
+	// For Instant Link: "Complete your verification. If you did not make this request, do not click link. ####"
+	// For OTP: "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."
+	// Max length is 160 characters. Only ASCII characters are allowed.
+	// The template must include the '####' placeholder, which will be replaced with the actual URL or OTP.
+	SmsMessage *string `json:"smsMessage,omitempty"`
 	// SSN, an optional challenge, is either the full or last 4 digits of the social security number. Acceptable characters are: numeric.
 	Ssn *string `json:"ssn,omitempty"`
 }
@@ -59,6 +66,13 @@ func (o *V3StartRequest) GetPhoneNumber() *string {
 		return nil
 	}
 	return o.PhoneNumber
+}
+
+func (o *V3StartRequest) GetSmsMessage() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SmsMessage
 }
 
 func (o *V3StartRequest) GetSsn() *string {
