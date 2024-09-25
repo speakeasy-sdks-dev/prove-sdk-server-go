@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 )
 
-// Error400 - Bad Request. The server cannot process the request due to a client error.
 type Error400 struct {
 	// Code is an internal error code that describes the problem category of the request.
 	Code *int64 `json:"code,omitempty"`
