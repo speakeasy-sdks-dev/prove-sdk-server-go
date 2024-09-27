@@ -1,7 +1,5 @@
 # Error
 
-Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request.
-
 
 ## Fields
 
