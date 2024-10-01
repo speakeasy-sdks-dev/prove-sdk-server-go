@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 )
 
-// Error - Internal Server Error. The server encountered an unexpected condition that prevented it from fulfilling the request.
 type Error struct {
 	// Code is an internal error code that describes the problem category of the request.
 	Code *int64 `json:"code,omitempty"`
