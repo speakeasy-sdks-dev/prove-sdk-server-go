@@ -20,7 +20,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
-    oauth2ClientCredentials: 0.2.1
+    oauth2ClientCredentials: 0.2.2
     responseFormat: 0.1.2
     retries: 2.83.0
     sdkHooks: 0.1.0
