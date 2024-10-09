@@ -12,7 +12,7 @@ management:
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.5.13
+    core: 3.5.14
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.1
     examples: 2.81.3
