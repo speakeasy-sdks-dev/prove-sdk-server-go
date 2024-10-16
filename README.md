@@ -246,10 +246,10 @@ func main() {
 
 You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `uat-us` | `https://platform.uat.proveapis.com` | None |
-| `prod-us` | `https://platform.proveapis.com` | None |
+| Name                                 | Server                               |
+| ------------------------------------ | ------------------------------------ |
+| `uat-us`                             | `https://platform.uat.proveapis.com` |
+| `prod-us`                            | `https://platform.proveapis.com`     |
 
 #### Example
 
